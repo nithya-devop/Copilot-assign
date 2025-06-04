@@ -7,7 +7,7 @@ def get_system_uptime():
     if system == "Windows":
         # Windows: use 'net stats srv' and parse output
         try:
-            output = subprocess.check_output("net stats srv", shell=True, text=True)
+            output = subprocess.check_output("net stats workstation", shell=True, text=True)
             for line in output.split('\n'):
                 if "Statistics since" in line:
                     print("System uptime (since):", line.strip().split("since")[1].strip())
